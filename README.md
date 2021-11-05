@@ -11,7 +11,7 @@ docker build --label ogre --build-arg OGRE_VERSION_TAG=v13.1.1 --tag ggjnez/ogre
 ## Push docker image
 
 ```
-docker push ggjnez/ogre-ubuntu21:13.1.1
+docker push ggjnez92/ogre-ubuntu21:13.1.1
 ```
 
 ## License
