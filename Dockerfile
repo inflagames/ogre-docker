@@ -1,12 +1,16 @@
 FROM ubuntu:22.04
 
-ENV TZ=Europe/Kiev
-RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
-
 # Install dependencies
 RUN apt update && \
     apt install -y libgles2-mesa-dev libsdl2-dev libxt-dev libxaw7-dev \
-    doxygen zziplib-bin git build-essential g++ wget
+    doxygen zziplib-bin git build-essential g++ wget locales
+
+# Setup locale
+RUN sed -i '/en_US.UTF-8/s/^# //g' /etc/locale.gen && \
+    locale-gen
+ENV LANG en_US.UTF-8
+ENV LANGUAGE en_US:en
+ENV LC_ALL en_US.UTF-8
 
 # Install cmake latest version
 RUN wget https://github.com/Kitware/CMake/releases/download/v3.28.1/cmake-3.28.1-linux-x86_64.sh -q -O \
