@@ -23,11 +23,16 @@ RUN wget https://github.com/Kitware/CMake/releases/download/v3.28.1/cmake-3.28.1
 
 WORKDIR /home/
 
-ADD setup-ogre.sh ./
+ADD setup-ogre.sh setup-bulletphysic.sh ./
 
 # build/install Ogre3d from latest version
 ARG OGRE_VERSION_TAG
 ENV OGRE_VERSION_TAG=$OGRE_VERSION_TAG
 RUN bash setup-ogre.sh
+
+# install bullet physic lib
+ARG BULLET_VERSION_TAG
+ENV BULLET_VERSION_TAG=$BULLET_VERSION_TAG
+RUN bash setup-bulletphysic.sh
 
 CMD ["bash"]

@@ -2,6 +2,12 @@
 
 Docker container with basic dependencies and capabilities to build an Ogre3d project in Ubuntu 22.04.
 
+**Tools Available**
+
+- Ogre3d: v14.2.0
+- CMake: v3.28.1
+- Bullet (physics): 3.25
+
 > Note: CMake v3.28.1 is configured in the docker image by default.
 
 ## Build my project
